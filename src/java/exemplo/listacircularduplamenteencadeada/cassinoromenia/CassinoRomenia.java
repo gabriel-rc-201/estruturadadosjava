@@ -26,15 +26,16 @@ public class CassinoRomenia {
 
             StringBuilder resultado = new StringBuilder();
 
+            No<Integer> horario = apostadores.getHead(); // Posição inicial para o contador horário
+            No<Integer> antihorario =  apostadores.getTail(); // Posição inicial para o contador anti-horário
+
             while(!apostadores.isVazio()){
-                No<Integer> horario = apostadores.getHead(); // Posição inicial para o contador horário
                 for (int j = 0; j < k - 1; j++){
                     horario = horario.getProximo();
                 }
 
                 resultado.append(horario.getValor());
 
-                No<Integer> antihorario =  apostadores.getTail(); // Posição inicial para o contador anti-horário
                 for (int j = 0; j < m - 1; j++){
                     antihorario = antihorario.getAnterior();
                 }
@@ -43,15 +44,18 @@ public class CassinoRomenia {
                     resultado.append(" ").append(antihorario.getValor());
                 }
 
-                No<Integer> proximoAposRemoverOHorario = apostadores.removerERetornaAnterior(horario);
+                 No<Integer> proximoAposRemoverOHorario = apostadores.removerERetornaAnterior(horario);
 
                 if(!horario.equals(antihorario)){
-                    antihorario = apostadores.removerERetornaProximo(antihorario);
+                    if(antihorario.equals(proximoAposRemoverOHorario)){
+                        proximoAposRemoverOHorario = antihorario.getAnterior();
+                    }
+                     antihorario = apostadores.removerERetornaProximo(antihorario);
                 } else {
-                    antihorario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getProximo() : null;
+                    antihorario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getProximo().getProximo() : null;
                 }
 
-                horario = proximoAposRemoverOHorario;
+                horario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getAnterior().getAnterior() : null;
 
                 if(!apostadores.isVazio()){
                     resultado.append(", ");
