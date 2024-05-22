@@ -45,6 +45,13 @@ public class ListaCircularDuplamenteEncadeada<T> {
         No<T> proximo = noASerRemovido.getProximo();
         No<T> anterior = noASerRemovido.getAnterior();
 
+        if(proximo.equals(anterior)){
+            this.setHead(null);
+            this.setTail(null);
+
+            return null;
+        }
+
         if(noASerRemovido.equals(head)){
             this.setHead(proximo);
         } else if(noASerRemovido.equals(tail)){
@@ -58,5 +65,57 @@ public class ListaCircularDuplamenteEncadeada<T> {
         anterior.setProximo(proximo);
 
         return noASerRemovido.getValor();
+    }
+
+    public No<T> removerERetornaProximo(No<T> noASerRemovido){
+        No<T> proximo = noASerRemovido.getProximo();
+        No<T> anterior = noASerRemovido.getAnterior();
+
+        if(proximo.equals(anterior)){
+            this.setHead(null);
+            this.setTail(null);
+
+            return null;
+        }
+
+        if(noASerRemovido.equals(head)){
+            this.setHead(proximo);
+        } else if(noASerRemovido.equals(tail)){
+            this.setTail(anterior);
+        }
+
+        noASerRemovido.setProximo(null);
+        noASerRemovido.setAnterior(null);
+
+        proximo.setAnterior(anterior);
+        anterior.setProximo(proximo);
+
+        return proximo;
+    }
+
+    public No<T> removerERetornaAnterior(No<T> noASerRemovido){
+        No<T> proximo = noASerRemovido.getProximo();
+        No<T> anterior = noASerRemovido.getAnterior();
+
+        if(proximo.equals(anterior)){
+            this.setHead(null);
+            this.setTail(null);
+
+            return null;
+        }
+
+        if(noASerRemovido.equals(head)){
+            this.setHead(proximo);
+        } else if(noASerRemovido.equals(tail)){
+            this.setTail(anterior);
+        }
+
+        noASerRemovido.setProximo(null);
+        noASerRemovido.setAnterior(null);
+
+        proximo.setAnterior(anterior);
+        anterior.setProximo(proximo);
+
+        return anterior;
     }
 }
