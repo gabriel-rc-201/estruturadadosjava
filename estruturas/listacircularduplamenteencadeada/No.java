@@ -13,4 +13,13 @@ public class No<T> {
     public No(T valor) {
         this.valor = valor;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        No<?> novoNo = (No<?>) obj;
+        return valor.equals(novoNo.valor);
+    }
 }
