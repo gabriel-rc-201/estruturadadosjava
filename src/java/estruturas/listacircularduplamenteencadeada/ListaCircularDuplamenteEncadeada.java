@@ -45,7 +45,7 @@ public class ListaCircularDuplamenteEncadeada<T> {
         No<T> proximo = noASerRemovido.getProximo();
         No<T> anterior = noASerRemovido.getAnterior();
 
-        if(proximo.equals(anterior)){
+        if(noASerRemovido.equals(head) && noASerRemovido.equals(tail)){
             this.setHead(null);
             this.setTail(null);
 
@@ -71,7 +71,7 @@ public class ListaCircularDuplamenteEncadeada<T> {
         No<T> proximo = noASerRemovido.getProximo();
         No<T> anterior = noASerRemovido.getAnterior();
 
-        if(proximo.equals(anterior)){
+        if(noASerRemovido.equals(head) && noASerRemovido.equals(tail)){
             this.setHead(null);
             this.setTail(null);
 
@@ -97,7 +97,7 @@ public class ListaCircularDuplamenteEncadeada<T> {
         No<T> proximo = noASerRemovido.getProximo();
         No<T> anterior = noASerRemovido.getAnterior();
 
-        if(proximo.equals(anterior)){
+        if(noASerRemovido.equals(head) && noASerRemovido.equals(tail)){
             this.setHead(null);
             this.setTail(null);
 
