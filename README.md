@@ -1,8 +1,8 @@
 # Estrutura de dados utilizando Java
 
 ## Lista circular duplamente encadeada
-[nó](src/java/estruturas/listacircularduplamenteencadeada/No.java)  
-[Lista circular duplamente encadeada](src/java/estruturas/listacircularduplamenteencadeada/ListaCircularDuplamenteEncadeada.java)  
+- [nó](src/java/estruturas/listacircularduplamenteencadeada/No.java)  
+- [Lista circular duplamente encadeada](src/java/estruturas/listacircularduplamenteencadeada/ListaCircularDuplamenteEncadeada.java)  
 
 ### Exemplo de uso
 O enumciado do exemplo esta no arquivo [Readme](src/java/exemplo/listacircularduplamenteencadeada/cassinoromenia/README.md) do diretório de exemplo  
