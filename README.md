@@ -1,5 +1,4 @@
 # Estrutura de dados utilizando Java
-<hr/>
 
 ## Lista circular duplamente encadeada
 [nó](src/java/estruturas/listacircularduplamenteencadeada/No.java)  
