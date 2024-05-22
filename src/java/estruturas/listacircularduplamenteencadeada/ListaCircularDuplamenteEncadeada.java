@@ -1,22 +1,33 @@
-package estruturas.listacircularduplamenteencadeada;
+package src.java.estruturas.listacircularduplamenteencadeada;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class ListaCircularDuplamenteEncadeada<T> {
     private No<T> head = null;
     private No<T> tail = null;
 
-    public boolean listaVasia(){
+    public No<T> getHead() {
+        return head;
+    }
+
+    public void setHead(No<T> head) {
+        this.head = head;
+    }
+
+    public No<T> getTail() {
+        return tail;
+    }
+
+    public void setTail(No<T> tail) {
+        this.tail = tail;
+    }
+
+    public boolean isVazio(){
         return head == null && tail == null;
     }
 
     public void adicionar(T valor){
         No<T> novoNo = new No<>(valor);
 
-        if(listaVasia()){
+        if(isVazio()){
             head = novoNo;
             tail = novoNo;
         }
