@@ -24,10 +24,10 @@ public class ListaCircularDuplamenteEncadeada<T> {
         novoNo.setProximo(head);
         novoNo.setAnterior(tail);
 
-        this.setHead(novoNo);
+        this.setTail(novoNo);
 
         novoNo.getProximo().setAnterior(novoNo);
-        tail.setProximo(novoNo);
+        novoNo.getAnterior().setProximo(novoNo);
     }
 
     public T remover(No<T> noASerRemovido){
