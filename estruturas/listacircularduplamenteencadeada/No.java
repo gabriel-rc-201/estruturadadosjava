@@ -19,7 +19,7 @@ public class No<T> {
         if(this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
 
-        No<?> novoNo = (No<?>) obj;
-        return valor.equals(novoNo.valor);
+        No<?> no = (No<?>) obj;
+        return valor.equals(no.getValor());
     }
 }
