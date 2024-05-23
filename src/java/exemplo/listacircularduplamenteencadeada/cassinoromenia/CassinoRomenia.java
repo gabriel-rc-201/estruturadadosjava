@@ -44,18 +44,23 @@ public class CassinoRomenia {
                     resultado.append(" ").append(antihorario.getValor());
                 }
 
-                 No<Integer> proximoAposRemoverOHorario = apostadores.removerERetornaAnterior(horario);
+                No<Integer> proximoAposRemoverOHorario = apostadores.removerERetornaProximo(horario);
 
                 if(!horario.equals(antihorario)){
                     if(antihorario.equals(proximoAposRemoverOHorario)){
                         proximoAposRemoverOHorario = antihorario.getAnterior();
                     }
-                     antihorario = apostadores.removerERetornaProximo(antihorario);
+                    antihorario = apostadores.removerERetornaAnterior(antihorario);
                 } else {
-                    antihorario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getProximo().getProximo() : null;
+                    antihorario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getProximo().getAnterior() : null;
                 }
 
-                horario = proximoAposRemoverOHorario != null ? proximoAposRemoverOHorario.getAnterior().getAnterior() : null;
+                if (proximoAposRemoverOHorario != null) {
+                    horario = proximoAposRemoverOHorario;
+                } else {
+                    assert antihorario != null;
+                    horario = antihorario.getProximo();
+                }
 
                 if(!apostadores.isVazio()){
                     resultado.append(", ");
